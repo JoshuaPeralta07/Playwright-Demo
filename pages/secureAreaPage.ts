@@ -7,15 +7,17 @@ export class SecureAreaPage {
 
     constructor(page : Page) {
         this.page = page;
-        this.successAlert = this.page.locator('id="flash"');
-        this.logoutButton = this.page.locator('//i[@class="icon-2x icon-signout"]');
+        this.successAlert = this.page.locator('#flash');
+        this.logoutButton = this.page.locator("//i[contains(text(), 'Logout')]");
     }
 
     async checkSuccessAlertIsVisible(): Promise<boolean> {
+        await this.successAlert.waitFor({ state: 'visible' })
         return await this.successAlert.isVisible();
     }
 
     async checkLogoutButtonIsVisible(): Promise<boolean> {
+        await this.logoutButton.waitFor({ state: 'visible' });
         return await this.logoutButton.isVisible();
     }
 }

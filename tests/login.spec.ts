@@ -9,9 +9,7 @@ test('Successfully login with the correct credentials', async ({ page }) => {
     await loginPage.enterPassword('SuperSecretPassword!');
     await loginPage.clickLoginButton();
 
-    
     let secureAreaPage = new SecureAreaPage(page);
-    await page.waitForTimeout(3000);
-    //await expect(secureAreaPage.checkSuccessAlertIsVisible()).toBeTruthy();
-    await expect(secureAreaPage.checkLogoutButtonIsVisible()).toBeTruthy();
+    await expect(await secureAreaPage.checkSuccessAlertIsVisible()).toBe(true);
+    await expect(await secureAreaPage.checkLogoutButtonIsVisible()).toBe(true);
 });
