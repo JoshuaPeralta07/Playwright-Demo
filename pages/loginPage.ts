@@ -21,11 +21,8 @@ export class LoginPage {
         await this.page.goto(url);
     }
 
-    async enterUsername(username : string) {
+    async enterCredentials(username : string, password : string) {
         await this.usernameField.fill(username);
-    }
-
-    async enterPassword(password : string) {
         await this.passwordField.fill(password);
     }
 
@@ -41,6 +38,4 @@ export class LoginPage {
     async checkErrorAlert(): Promise<string> {
         return await this.errorAlert.innerText();
     }
-
-
 }
