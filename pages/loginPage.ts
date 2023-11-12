@@ -17,16 +17,10 @@ export class LoginPage {
         this.errorAlert = this.page.locator("#flash");
     }
 
-    async navigateToPage(url : string) {
+    async enterCredentials(url : string, username : string, password : string) {
         await this.page.goto(url);
-    }
-
-    async enterCredentials(username : string, password : string) {
         await this.usernameField.fill(username);
         await this.passwordField.fill(password);
-    }
-
-    async clickLoginButton() {
         await this.loginButton.click();
     }
 
