@@ -12,7 +12,7 @@ export class SecureAreaPage {
     }
 
     async checkSuccessAlertIsVisible(): Promise<boolean> {
-        await this.successAlert.waitFor({ state: 'visible' })
+        await this.successAlert.waitFor({ state: 'visible' });
         return await this.successAlert.isVisible();
     }
 
